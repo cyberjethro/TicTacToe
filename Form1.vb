@@ -5,56 +5,148 @@
     Dim Player2Score As New List(Of Integer)
     Dim Player1Win As Boolean = False
     Dim Player2Win As Boolean = False
+    Dim PlayerXTurn As Boolean = True
+    Dim PlayerOTurn As Boolean = False
+
 #End Region
 
 #Region "Event Handlers"
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         Form2.ShowDialog()
+        lblX.ForeColor = Color.Blue
+        btn1.TabStop = False
+        btn2.TabStop = False
+        btn3.TabStop = False
+        btn4.TabStop = False
+        btn5.TabStop = False
+        btn6.TabStop = False
+        btn7.TabStop = False
+        btn8.TabStop = False
+        btn9.TabStop = False
 
     End Sub
     Private Sub Btn1_Click(sender As Object, e As EventArgs) Handles btn1.Click
+        If PlayerOTurn = True Then
+            btn1.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn1.Text = "X"
+        End If
+        btn1.Enabled = False
         ScoreKeeper(1)
     End Sub
 
     Private Sub Btn2_Click(sender As Object, e As EventArgs) Handles btn2.Click
+        If PlayerOTurn = True Then
+            btn2.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn2.Text = "X"
+        End If
+        btn2.Enabled = False
         ScoreKeeper(2)
     End Sub
 
     Private Sub Btn3_Click(sender As Object, e As EventArgs) Handles btn3.Click
+        If PlayerOTurn = True Then
+            btn3.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn3.Text = "X"
+        End If
+        btn3.Enabled = False
         ScoreKeeper(3)
     End Sub
 
     Private Sub Btn4_Click(sender As Object, e As EventArgs) Handles btn4.Click
+        If PlayerOTurn = True Then
+            btn4.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn4.Text = "X"
+        End If
+        btn4.Enabled = False
         ScoreKeeper(4)
     End Sub
 
     Private Sub Btn5_Click(sender As Object, e As EventArgs) Handles btn5.Click
+        If PlayerOTurn = True Then
+            btn5.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn5.Text = "X"
+        End If
+        btn5.Enabled = False
         ScoreKeeper(5)
     End Sub
 
     Private Sub Btn6_Click(sender As Object, e As EventArgs) Handles btn6.Click
+        If PlayerOTurn = True Then
+            btn6.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn6.Text = "X"
+        End If
+        btn6.Enabled = False
         ScoreKeeper(6)
     End Sub
 
     Private Sub Btn7_Click(sender As Object, e As EventArgs) Handles btn7.Click
+        If PlayerOTurn = True Then
+            btn7.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn7.Text = "X"
+        End If
+        btn7.Enabled = False
         ScoreKeeper(7)
     End Sub
 
     Private Sub Btn8_Click(sender As Object, e As EventArgs) Handles btn8.Click
+        If PlayerOTurn = True Then
+            btn8.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn8.Text = "X"
+        End If
+        btn8.Enabled = False
         ScoreKeeper(8)
     End Sub
 
     Private Sub Btn9_Click(sender As Object, e As EventArgs) Handles btn9.Click
+        If PlayerOTurn = True Then
+            btn9.Text = "O"
+        End If
+        If PlayerXTurn = True Then
+            btn9.Text = "X"
+        End If
+        btn9.Enabled = False
         ScoreKeeper(9)
     End Sub
 
 #End Region
-    Private Sub ScoreKeeper(keystroke As Integer)
+    Public Sub ScoreKeeper(keystroke As Integer)
 
-        Player1Score.Add(keystroke)
+        If PlayerXTurn = True Then
+            lblO.ForeColor = Color.Blue
+            lblX.ForeColor = Color.Black
+            Player1Score.Add(keystroke)
+            Referee()
+            PlayerXTurn = False
+            PlayerOTurn = True
+            Exit Sub
+        End If
 
-        Referee()
+        If PlayerOTurn = True Then
+            lblO.ForeColor = Color.Black
+            lblX.ForeColor = Color.Blue
+            Player2Score.Add(keystroke)
+            Referee()
+            PlayerXTurn = True
+            PlayerOTurn = False
+            Exit Sub
+        End If
 
     End Sub
 
@@ -131,8 +223,11 @@
         End If
 #End Region
 
+        'Draw Logic /TODO
+
+
         'Checks current state of play
-        If Player1Win = True Or Player2Win Then
+        If Player1Win = True Or Player2Win = True Then
             Results()
         End If
 

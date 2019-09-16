@@ -6,8 +6,10 @@
         playerOne = txtPlay1.Text
         playerTwo = txtPlay2.Text
 
-        MessageBox.Show(playerOne)
-        MessageBox.Show(playerTwo)
+        Form1.lblPlay1.Text = playerOne
+        Form1.lblPlay2.Text = playerTwo
+
+        Me.Hide()
 
     End Sub
 
