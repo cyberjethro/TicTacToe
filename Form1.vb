@@ -296,17 +296,17 @@
         End If
 #End Region
 
-        'Draw Logic
-        If Player1Score.Count = 5 And Player2Score.Count = 4 Then
-
-            MessageBox.Show("Game is a draw!")
+        'Checks current state of play
+        If Player1Win = True Or Player2Win = True Then
 
             Results()
 
         End If
 
-        'Checks current state of play
-        If Player1Win = True Or Player2Win = True Then
+        'Draw Logic
+        If Player1Score.Count = 5 And Player2Score.Count = 4 Then
+
+            MessageBox.Show("Game is a draw!")
 
             Results()
 
