@@ -34,7 +34,9 @@
         If PlayerXTurn = True Then
             btn1.Text = "X"
         End If
+
         btn1.Enabled = False
+
         ScoreKeeper(1)
 
     End Sub
@@ -46,7 +48,9 @@
         If PlayerXTurn = True Then
             btn2.Text = "X"
         End If
+
         btn2.Enabled = False
+
         ScoreKeeper(2)
 
     End Sub
@@ -58,7 +62,9 @@
         If PlayerXTurn = True Then
             btn3.Text = "X"
         End If
+
         btn3.Enabled = False
+
         ScoreKeeper(3)
 
     End Sub
@@ -70,7 +76,9 @@
         If PlayerXTurn = True Then
             btn4.Text = "X"
         End If
+
         btn4.Enabled = False
+
         ScoreKeeper(4)
 
     End Sub
@@ -82,7 +90,9 @@
         If PlayerXTurn = True Then
             btn5.Text = "X"
         End If
+
         btn5.Enabled = False
+
         ScoreKeeper(5)
 
     End Sub
@@ -94,7 +104,9 @@
         If PlayerXTurn = True Then
             btn6.Text = "X"
         End If
+
         btn6.Enabled = False
+
         ScoreKeeper(6)
 
     End Sub
@@ -106,7 +118,9 @@
         If PlayerXTurn = True Then
             btn7.Text = "X"
         End If
+
         btn7.Enabled = False
+
         ScoreKeeper(7)
 
     End Sub
@@ -118,7 +132,9 @@
         If PlayerXTurn = True Then
             btn8.Text = "X"
         End If
+
         btn8.Enabled = False
+
         ScoreKeeper(8)
 
     End Sub
@@ -130,7 +146,9 @@
         If PlayerXTurn = True Then
             btn9.Text = "X"
         End If
+
         btn9.Enabled = False
+
         ScoreKeeper(9)
 
     End Sub
@@ -138,23 +156,35 @@
     Public Sub ScoreKeeper(keystroke As Integer)
 
         If PlayerXTurn = True Then
+
             lblO.ForeColor = Color.Blue
             lblX.ForeColor = Color.Black
+
             Player1Score.Add(keystroke)
+
             PlayerXTurn = False
             PlayerOTurn = True
+
             Referee()
+
             Exit Sub
+
         End If
 
         If PlayerOTurn = True Then
+
             lblO.ForeColor = Color.Black
             lblX.ForeColor = Color.Blue
+
             Player2Score.Add(keystroke)
+
             PlayerXTurn = True
             PlayerOTurn = False
+
             Referee()
+
             Exit Sub
+
         End If
 
     End Sub
@@ -165,35 +195,52 @@
 
         'Conditonals that check for winning place/number combinations
         If Player1Score.Contains(1) And Player1Score.Contains(2) And Player1Score.Contains(3) Then
+
             Player1Win = True
+
         End If
 
         If Player1Score.Contains(4) And Player1Score.Contains(5) And Player1Score.Contains(6) Then
+
             Player1Win = True
+
         End If
 
+
         If Player1Score.Contains(7) And Player1Score.Contains(8) And Player1Score.Contains(9) Then
+
             Player1Win = True
+
         End If
 
         If Player1Score.Contains(1) And Player1Score.Contains(4) And Player1Score.Contains(7) Then
+
             Player1Win = True
+
         End If
 
         If Player1Score.Contains(2) And Player1Score.Contains(5) And Player1Score.Contains(8) Then
+
             Player1Win = True
+
         End If
 
         If Player1Score.Contains(3) And Player1Score.Contains(6) And Player1Score.Contains(9) Then
+
             Player1Win = True
+
         End If
 
         If Player1Score.Contains(1) And Player1Score.Contains(5) And Player1Score.Contains(9) Then
+
             Player1Win = True
+
         End If
 
         If Player1Score.Contains(3) And Player1Score.Contains(5) And Player1Score.Contains(7) Then
+
             Player1Win = True
+
         End If
 #End Region
 
@@ -201,47 +248,68 @@
 
         'Conditonals that check for winning place/number combinations
         If Player2Score.Contains(1) And Player2Score.Contains(2) And Player2Score.Contains(3) Then
+
             Player2Win = True
+
         End If
 
         If Player2Score.Contains(4) And Player2Score.Contains(5) And Player2Score.Contains(6) Then
+
             Player2Win = True
+
         End If
 
         If Player2Score.Contains(7) And Player2Score.Contains(8) And Player2Score.Contains(9) Then
+
             Player2Win = True
+
         End If
 
         If Player2Score.Contains(1) And Player2Score.Contains(4) And Player2Score.Contains(7) Then
+
             Player2Win = True
+
         End If
 
         If Player2Score.Contains(2) And Player2Score.Contains(5) And Player2Score.Contains(8) Then
+
             Player2Win = True
+
         End If
 
         If Player2Score.Contains(3) And Player2Score.Contains(6) And Player2Score.Contains(9) Then
+
             Player2Win = True
+
         End If
 
         If Player2Score.Contains(1) And Player2Score.Contains(5) And Player2Score.Contains(9) Then
+
             Player2Win = True
+
         End If
 
         If Player2Score.Contains(3) And Player2Score.Contains(5) And Player2Score.Contains(7) Then
+
             Player2Win = True
+
         End If
 #End Region
 
         'Draw Logic
         If Player1Score.Count = 5 And Player2Score.Count = 4 Then
+
             MessageBox.Show("Game is a draw!")
+
             Results()
+
         End If
 
         'Checks current state of play
         If Player1Win = True Or Player2Win = True Then
+
             Results()
+
         End If
 
     End Sub
@@ -253,9 +321,13 @@
 
         'Winner Text
         If Player1Win = True Then
+
             MessageBox.Show("Player 1 wins!")
+
         ElseIf Player2Win = True Then
+
             MessageBox.Show("Player 2 wins!")
+
         End If
 
         'Reset bools

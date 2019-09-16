@@ -121,7 +121,7 @@ Partial Class Form1
         'lblPlay1
         '
         Me.lblPlay1.AutoSize = True
-        Me.lblPlay1.Location = New System.Drawing.Point(63, 62)
+        Me.lblPlay1.Location = New System.Drawing.Point(63, 57)
         Me.lblPlay1.Name = "lblPlay1"
         Me.lblPlay1.Size = New System.Drawing.Size(60, 17)
         Me.lblPlay1.TabIndex = 10
@@ -131,7 +131,7 @@ Partial Class Form1
         'lblPlay2
         '
         Me.lblPlay2.AutoSize = True
-        Me.lblPlay2.Location = New System.Drawing.Point(209, 62)
+        Me.lblPlay2.Location = New System.Drawing.Point(209, 57)
         Me.lblPlay2.Name = "lblPlay2"
         Me.lblPlay2.Size = New System.Drawing.Size(60, 17)
         Me.lblPlay2.TabIndex = 11
@@ -183,7 +183,7 @@ Partial Class Form1
         Me.Controls.Add(Me.btn1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.Name = "Form1"
-        Me.Text = "0"
+        Me.Text = "TicTacToe"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
